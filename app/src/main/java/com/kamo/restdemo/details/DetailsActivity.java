@@ -26,14 +26,12 @@ public class DetailsActivity extends BaseActivity{
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         FragmentManager fragmentManager = getSupportFragmentManager();
 
-        DetailsFragment detailsFragment = (DetailsFragment) fragmentManager.findFragmentById(Integer.parseInt(DETAILS));
+        DetailsFragment detailsFragment = (DetailsFragment) fragmentManager.findFragmentById(R.id.details_fragment);
 
-        if (detailsFragment ==null)
+        if (detailsFragment ==null) {
             detailsFragment = DetailsFragment.newInstance();
-
             ActivityUtils.addFragment(fragmentManager, detailsFragment, R.id.details_fragment);
-
-        this.finish();
+        }
     }
 
 }
