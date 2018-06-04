@@ -17,8 +17,6 @@ import com.kamo.restdemo.R;
 
 public class DetailsActivity extends BaseActivity{
 
-    private static final String DETAILS = "DETAILS";
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

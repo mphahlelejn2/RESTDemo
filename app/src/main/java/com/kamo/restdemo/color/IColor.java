@@ -1,9 +1,5 @@
 package com.kamo.restdemo.color;
-
-import android.app.Activity;
-
 import com.kamo.restdemo.base.IBase;
-
 import java.util.List;
 
 /**
@@ -15,16 +11,16 @@ public interface IColor {
     interface Presenter extends IBase.Presenter
     {
         void loadListOfColors();
-        void loadColor(String name);
+        void loadColor(int id);
     }
      interface View extends IBase.View
     {
         void loadAdaptor(List<Color> colors);
-        Activity getActivity();
         void dismissLoadDialog();
         void initLoadProgressDialog();
         void errorLoadingColor();
         void colorListEmpty();
+
     }
 
 }

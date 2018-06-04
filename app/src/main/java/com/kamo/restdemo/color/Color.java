@@ -18,7 +18,7 @@ public class Color implements Serializable{
     private String title;
     @SerializedName("id")
     @Expose
-    private double id;
+    private int id;
     @SerializedName("thumbnailUrl")
     @Expose
     private String thumbnailUrl;
@@ -35,11 +35,11 @@ public class Color implements Serializable{
         this.title = title;
     }
 
-    public double getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(int id) {
         this.id = id;
     }
     public String getThumbnailUrl() {

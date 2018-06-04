@@ -35,17 +35,22 @@ public class DetailsFragment extends BaseFragment implements IDetails.View {
         return R.layout.details_fragment;
     }
 
+    @Override
+    public void filter(String newText) {
+
+    }
+
     private void loadInfo() {
         Color color = (Color) getActivity().getIntent().getSerializableExtra("data");
         presenter.loadInfo(color,imageView);
         summary.setText(color.getTitle());
-
     }
 
+    @Override
     public void dismissLoadDialog() {
         loadImageProgressDialog.dismiss();
     }
-
+    @Override
     public void initLoadProgressDialog() {
         loadImageProgressDialog=new SpotsDialog(getActivity(), "Loading ");
         loadImageProgressDialog.show();

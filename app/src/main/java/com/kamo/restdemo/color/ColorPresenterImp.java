@@ -2,10 +2,8 @@ package com.kamo.restdemo.color;
 import com.kamo.restdemo.dao.IRepository;
 import com.kamo.restdemo.base.BasePresenter;
 import com.kamo.restdemo.rxjava.BaseSchedulerProvider;
-
 import java.util.List;
 import javax.inject.Inject;
-
 import io.reactivex.observers.DisposableMaybeObserver;
 
 /**
@@ -56,15 +54,13 @@ public class ColorPresenterImp extends BasePresenter implements IColor.Presenter
     }
 
     @Override
-    public void loadColor(String name) {
-        compositeDisposable.add(repository.getColor(name)
+    public void loadColor(int id) {
+        compositeDisposable.add(repository.getColor(id)
                 .subscribeOn(scheduler.io())
                 .observeOn(scheduler.ui())
-                .subscribeWith(new DisposableMaybeObserver() {
-
-
+                .subscribeWith(new DisposableMaybeObserver<Color>(){
                     @Override
-                    public void onSuccess(Object o) {
+                    public void onSuccess(Color color) {
 
                     }
 

@@ -13,5 +13,5 @@ import io.reactivex.Maybe;
 public interface IRepository {
     Maybe<List<Color>> getColorList();
     Maybe<List<User>> getUserList();
-    Maybe<Color> getColor(String colorName);
+    Maybe<Color> getColor(int id);
 }

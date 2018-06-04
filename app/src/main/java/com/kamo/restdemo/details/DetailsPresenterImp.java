@@ -23,6 +23,7 @@ public class DetailsPresenterImp extends BasePresenter implements IDetails.Prese
 
     @Override
     public void loadInfo(Color color, ImageView imageView) {
+        view.initLoadProgressDialog();
         Glide.with(view.getContext())
                 .load(color.getUrl()+"png")
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -30,5 +31,6 @@ public class DetailsPresenterImp extends BasePresenter implements IDetails.Prese
                 .fitCenter()
                 .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                 .into(imageView);
+        view.dismissLoadDialog();
     }
 }

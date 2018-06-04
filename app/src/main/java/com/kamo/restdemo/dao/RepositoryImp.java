@@ -1,7 +1,6 @@
 package com.kamo.restdemo.dao;
 
 import com.kamo.restdemo.color.Color;
-import com.kamo.restdemo.data.remote.Injection;
 import com.kamo.restdemo.user.User;
 
 import java.util.List;
@@ -21,7 +20,6 @@ public class RepositoryImp implements IRepository {
     @Inject
     public RepositoryImp(APIClient APIClient) {
         this.APIClient = APIClient;
-        //this.APIClient = Injection.provideColorsApiClient();;
     }
 
     @Override
@@ -35,7 +33,7 @@ public class RepositoryImp implements IRepository {
     }
 
     @Override
-    public Maybe<Color> getColor(String colorName) {
+    public Maybe<Color> getColor(int colorName) {
         return APIClient.getColor(colorName);
     }
 

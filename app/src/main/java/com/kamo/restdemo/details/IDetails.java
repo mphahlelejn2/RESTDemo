@@ -21,5 +21,7 @@ public interface IDetails {
     interface View extends IBase.View
     {
         Context getContext();
+        void dismissLoadDialog();
+        void initLoadProgressDialog();
     }
 }

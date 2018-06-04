@@ -40,6 +40,11 @@ public class ListOfUsersFragment extends BaseFragment implements IUser.View {
         return R.layout.list_of_authors_fragment;
     }
 
+    @Override
+    public void filter(String newText) {
+        adapter.getFilter().filter(newText);
+    }
+
 
     @Override
     public void loadAdaptor(List<User> colors) {

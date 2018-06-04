@@ -16,7 +16,7 @@ import dmax.dialog.SpotsDialog;
  * Created by Jeffrey.Mphahlele on 1/16/2018.
  */
 
-public class ListOfColorsFragment extends BaseFragment implements IColor.View {
+public class ListOfColorsFragment extends BaseFragment implements IColor.View{
 
     @Inject
     public IColor.Presenter presenter;
@@ -24,12 +24,15 @@ public class ListOfColorsFragment extends BaseFragment implements IColor.View {
     @BindView(R.id.recycler_view)
     public RecyclerView recyclerView;
     public SpotsDialog loadImageProgressDialog;
+    public ArrayList<Color> colorArrayList;
+    public ColorListAdapter adapter;
 
 
     @Override public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(mLayoutManager);
+        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setHasFixedSize(true);
         presenter.loadListOfColors();
     }
 
@@ -39,9 +42,14 @@ public class ListOfColorsFragment extends BaseFragment implements IColor.View {
     }
 
     @Override
+    public void filter(String newText) {
+        adapter.getFilter().filter(newText);
+    }
+
+    @Override
     public void loadAdaptor(List<Color> colors) {
-        ArrayList<Color> colorArrayList = new ArrayList<>(colors);
-        ColorListAdapter adapter = new ColorListAdapter(getContext(), colorArrayList);
+        colorArrayList = new ArrayList<>(colors);
+        adapter = new ColorListAdapter(getContext(), colorArrayList);
         recyclerView.setAdapter(adapter);
     }
 
@@ -65,9 +73,9 @@ public class ListOfColorsFragment extends BaseFragment implements IColor.View {
         super.onDestroy();
         presenter.destroy();
     }
-
     @Override
     public void colorListEmpty() {
         ToastUtils.showShortMessage(getActivity(),"Empty Color List ");
     }
+
 }

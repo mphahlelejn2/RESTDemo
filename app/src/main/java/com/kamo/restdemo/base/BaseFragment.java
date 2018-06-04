@@ -7,9 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.kamo.restdemo.R;
-
 import butterknife.ButterKnife;
 import dagger.android.support.AndroidSupportInjection;
 
@@ -52,4 +50,6 @@ abstract public class BaseFragment extends Fragment implements IBase.View{
         getActivity().setTitle(R.string.app_name);
     }
     protected abstract int getFragmentLayout();
+
+    public abstract void filter(String newText);
 }

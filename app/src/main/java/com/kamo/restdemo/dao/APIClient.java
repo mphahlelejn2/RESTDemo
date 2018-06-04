@@ -20,7 +20,7 @@ public interface APIClient {
     @GET("/users")
     Maybe<List<User>>getUserList();
 
-    @GET(UrlManager.API_END_POINT)
-    Maybe<Color> getColor(@Path("user")String user);
+    @GET(UrlManager.COLOR_END_POINT)
+    Maybe<Color> getColor(@Path("photo")int id);
 
 }

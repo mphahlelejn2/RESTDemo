@@ -1,4 +1,4 @@
-package com.kamo.restdemo.data.remote;
+package com.kamo.restdemo.dao;
 
 /**
  * Created by Jeffrey.Mphahlele on 25/05/2018.
