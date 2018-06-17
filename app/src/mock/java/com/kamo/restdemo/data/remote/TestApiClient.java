@@ -6,7 +6,6 @@ import com.kamo.restdemo.color.Color;
 import com.kamo.restdemo.dao.APIClient;
 import com.kamo.restdemo.user.User;
 
-import java.lang.reflect.Type;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 

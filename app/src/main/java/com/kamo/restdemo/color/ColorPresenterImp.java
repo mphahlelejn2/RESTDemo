@@ -26,7 +26,7 @@ public class ColorPresenterImp extends BasePresenter implements IColor.Presenter
 
     @Override
     public void loadListOfColors() {
-        view.initLoadProgressDialog();
+        //view.initLoadProgressDialog();
         compositeDisposable.add(repository.getColorList()
                 .subscribeOn(scheduler.io())
                 .observeOn(scheduler.ui())
@@ -35,7 +35,7 @@ public class ColorPresenterImp extends BasePresenter implements IColor.Presenter
                                    @Override
                                    public void onSuccess(List<Color> colors) {
                                        view.loadAdaptor(colors);
-                                       view.dismissLoadDialog();
+                                       //view.dismissLoadDialog();
                                    }
 
                                    @Override

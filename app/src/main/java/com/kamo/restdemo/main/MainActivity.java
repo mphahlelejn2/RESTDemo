@@ -46,6 +46,7 @@ public class MainActivity extends BaseActivity {
         viewPager.setOffscreenPageLimit(2);
         listOfColorsFragment = new ListOfColorsFragment();
         listOfUsersFragment = new ListOfUsersFragment();
+
         adaptor.addFragment(listOfColorsFragment,"List Of Colors");
         adaptor.addFragment(listOfUsersFragment,"Users");
         viewPager.setAdapter(adaptor);

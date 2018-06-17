@@ -16,7 +16,6 @@ import com.kamo.restdemo.details.DetailsActivity;
 import com.kamo.restdemo.R;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,7 +41,7 @@ public class ColorListAdapter extends RecyclerView.Adapter<ColorListAdapter.View
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-       View card= LayoutInflater.from(parent.getContext()).inflate(R.layout.member_card,parent,false);
+       View card= LayoutInflater.from(parent.getContext()).inflate(R.layout.color_card,parent,false);
         return new ViewHolder(card) ;
     }
 

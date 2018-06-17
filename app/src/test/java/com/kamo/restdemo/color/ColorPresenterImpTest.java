@@ -5,14 +5,12 @@ import com.kamo.restdemo.Rx.SchedulerProviderTest;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import java.util.ArrayList;
 import java.util.List;
 import io.reactivex.Maybe;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+
 
 /**
  * Created by Jeffrey.Mphahlele on 5/11/2018.
@@ -38,14 +36,14 @@ public class ColorPresenterImpTest {
     public void loadListOfColors_Results_Ok() {
         List<Color> list=getListOfColors();
         //Given
-        when(repository.getColorList()).thenReturn(Maybe.just(list));
+        Mockito.when(repository.getColorList()).thenReturn(Maybe.just(list));
         //when
         colorPresenterImp.loadListOfColors();
         //then
-        verify(view).initLoadProgressDialog();
-        verify(view,never()).errorLoadingColor();
-        verify(view).loadAdaptor(list);
-        verify(view,never()).colorListEmpty();
+        Mockito.verify(view).initLoadProgressDialog();
+        Mockito.verify(view, Mockito.never()).errorLoadingColor();
+        Mockito.verify(view).loadAdaptor(list);
+        Mockito.verify(view, Mockito.never()).colorListEmpty();
     }
 
     private List<Color> getListOfColors() {
@@ -62,28 +60,28 @@ public class ColorPresenterImpTest {
     {
         Exception exception = new Exception();
 
-        when(repository.getColorList())
+        Mockito.when(repository.getColorList())
                 .thenReturn(Maybe.error(exception));
         colorPresenterImp.loadListOfColors();
-        verify(view).initLoadProgressDialog();
-        verify(view).errorLoadingColor();
-        verify(view, never()).loadAdaptor(getListOfColors());
-        verify(view,never()).colorListEmpty();
+        Mockito.verify(view).initLoadProgressDialog();
+        Mockito.verify(view).errorLoadingColor();
+        Mockito.verify(view, Mockito.never()).loadAdaptor(getListOfColors());
+        Mockito.verify(view, Mockito.never()).colorListEmpty();
     }
 
     @Test
     public void loadListOfColors_Results_Empty()
     {
         //Given
-        when(repository.getColorList()).thenReturn(Maybe.empty());
+        Mockito.when(repository.getColorList()).thenReturn(Maybe.empty());
         //when
         colorPresenterImp.loadListOfColors();
         //then
-        verify(view,never()).errorLoadingColor();
-        verify(view, never()).loadAdaptor(getListOfColors());
+        Mockito.verify(view, Mockito.never()).errorLoadingColor();
+        Mockito.verify(view, Mockito.never()).loadAdaptor(getListOfColors());
 
-        verify(view,times(1)).colorListEmpty();
-        verify(view).colorListEmpty();
+        Mockito.verify(view, Mockito.times(1)).colorListEmpty();
+        Mockito.verify(view).colorListEmpty();
     }
 
 }

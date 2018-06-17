@@ -21,7 +21,7 @@ public class ListOfColorsFragment extends BaseFragment implements IColor.View{
     @Inject
     public IColor.Presenter presenter;
     private static final String TAG = "ListOfColorsFragment";
-    @BindView(R.id.recycler_view)
+    @BindView(R.id.color_recycler_view)
     public RecyclerView recyclerView;
     public SpotsDialog loadImageProgressDialog;
     public ArrayList<Color> colorArrayList;
@@ -38,7 +38,7 @@ public class ListOfColorsFragment extends BaseFragment implements IColor.View{
 
     @Override
     protected int getFragmentLayout() {
-        return R.layout.list_of_authors_fragment;
+        return R.layout.list_of_colors_fragment;
     }
 
     @Override
@@ -68,11 +68,13 @@ public class ListOfColorsFragment extends BaseFragment implements IColor.View{
     public void errorLoadingColor() {
         ToastUtils.showShortMessage(getActivity(),"Error Loading the Color list");
     }
+
     @Override
      public void onDestroy() {
         super.onDestroy();
         presenter.destroy();
     }
+
     @Override
     public void colorListEmpty() {
         ToastUtils.showShortMessage(getActivity(),"Empty Color List ");

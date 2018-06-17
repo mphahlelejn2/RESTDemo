@@ -24,7 +24,7 @@ public class ListOfUsersFragment extends BaseFragment implements IUser.View {
     private ArrayList<User> userArrayList;
     private UserListAdapter adapter;
 
-    @BindView(R.id.recycler_view)
+    @BindView(R.id.user_recycler_view)
     public RecyclerView recyclerView;
     public SpotsDialog loadImageProgressDialog;
 
@@ -37,7 +37,7 @@ public class ListOfUsersFragment extends BaseFragment implements IUser.View {
 
     @Override
     protected int getFragmentLayout() {
-        return R.layout.list_of_authors_fragment;
+        return R.layout.list_of_users_fragment;
     }
 
     @Override
